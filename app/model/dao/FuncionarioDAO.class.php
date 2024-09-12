@@ -1,5 +1,11 @@
 <?php 
 
+namespace app\model\dao;
+
+use app\model\entity\Funcionario;
+use \PDOException;
+use \PDO;
+
 //require_once('DAO.class.php');
 //require_once('model/Funcionario.class.php');
 

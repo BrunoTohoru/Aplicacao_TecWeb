@@ -1,5 +1,10 @@
 <?php
 
+namespace app\controller;
+
+use app\model\dao\FuncionarioDAO;
+use app\model\entity\Funcionario;
+
 /**
  * Responsável por processr a requisição
  * do usuário
@@ -14,7 +19,7 @@ class FuncionarioController {
         $dao = new FuncionarioDAO();
         $funcionarios = $dao->read_all();
 
-        include 'view/modules/funcionario/FuncionarioListar.php';
+        include 'app/view/modules/funcionario/FuncionarioListar.php';
 
     }
 
@@ -27,7 +32,7 @@ class FuncionarioController {
             $funcionario = $dao->read((int) $_GET['edit']);
         }
 
-        include 'view/modules/funcionario/FuncionarioForm.php';
+        include 'app/view/modules/funcionario/FuncionarioForm.php';
     }
 
     public static function create() {

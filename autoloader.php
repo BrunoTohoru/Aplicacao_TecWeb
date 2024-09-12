@@ -2,6 +2,11 @@
 
 spl_autoload_register(function($nome_da_classe) {
     
+    $nome_da_classe = str_replace('\\', '/', $nome_da_classe);
+
+    include $nome_da_classe . ".class.php";
+
+    /*
     $classe_controller = "controller/$nome_da_classe.class.php";
     $classe_dao = "dao/$nome_da_classe.class.php";
     $classe_model = "model/$nome_da_classe.class.php";
@@ -13,7 +18,8 @@ spl_autoload_register(function($nome_da_classe) {
     } elseif (file_exists($classe_model)) {
         include $classe_model;
     }
-    
+    */
+
 });
 
 ?>

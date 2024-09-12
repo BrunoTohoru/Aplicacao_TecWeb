@@ -1,5 +1,9 @@
 <?php 
 
+namespace app\lib;
+use \PDOException;
+use \PDO;
+
 class Conexao {
 
 	private $usuario;
