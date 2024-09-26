@@ -19,7 +19,7 @@ class FuncionarioController {
         $dao = new FuncionarioDAO();
         $funcionarios = $dao->read_all();
 
-        include 'app/view/modules/funcionario/FuncionarioListar.php';
+        include '../app/view/modules/funcionario/FuncionarioListar.php';
 
     }
 
@@ -32,7 +32,7 @@ class FuncionarioController {
             $funcionario = $dao->read((int) $_GET['edit']);
         }
 
-        include 'app/view/modules/funcionario/FuncionarioForm.php';
+        include '../app/view/modules/funcionario/FuncionarioForm.php';
     }
 
     public static function create() {

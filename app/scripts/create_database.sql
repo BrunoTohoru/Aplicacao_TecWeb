@@ -7,6 +7,6 @@ CREATE TABLE funcionario (
     nome VARCHAR(255) NULL,
     email VARCHAR(150) NULL,
     senha VARCHAR(45) NULL,
-    data_cadastro datetime DEFAULT NULL,
+    data_cadastro datetime DEFAULT current_timestamp(),
     PRIMARY KEY(id)
 );
