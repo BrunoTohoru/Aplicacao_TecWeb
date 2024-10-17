@@ -1,29 +1,99 @@
 <?php
 
-use app\controller\FuncionarioController;
+use app\controller\LocacaoController;
+use app\controller\FilmeController;
+use app\controller\EstiloController;
+use app\controller\ClienteController;
 use app\controller\HomeController;
-
+use app\controller\LoginController;
 
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 switch($url) {
+    // Autenticação
+    case '/login':
+        LoginController::login();
+        break;
+
+    case '/autenticar':
+        LoginController::autenticar();
+        break;
+
+    case '/sair':
+        LoginController::sair();
+        break;
+
+    // Página Home
     case '/':
         HomeController::index();
         break;
     
-    case '/funcionario':
-        FuncionarioController::listar();
+    // locacão
+    case '/locacao':
+        LocacaoController::listar();
         break;
     
-    case "/funcionario/form":
-        FuncionarioController::form();
+    case "/locacao/form":
+        LocacaoController::form();
         break;
 
-    case "/funcionario/form/create":
-        FuncionarioController::create();
+    case "/locacao/form/create":
+        LocacaoController::create();
         break;
-    case "/funcionario/delete":
-        FuncionarioController::delete();
+    case "/locacao/delete":
+        LocacaoController::delete();
+
+    // cliente
+    case '/cliente':
+        ClienteController::listar();
+        break;
+
+    case "/cliente/form":
+        ClienteController::form();
+        break;
+
+    case "/cliente/form/create":
+        ClienteController::create();
+        break;
+
+    case "/cliente/delete":
+        ClienteController::delete();
+        break;
+
+    // filme
+    case '/filme':
+        FilmeController::listar();
+        break;
+
+    case "/filme/form":
+        FilmeController::form();
+        break;
+
+    case "/filme/form/create":
+        FilmeController::create();
+        break;
+
+    case "/filme/delete":
+        FilmeController::delete();
+        break;
+
+    // estilo
+    case '/estilo':
+        EstiloController::listar();
+        break;
+
+    case "/estilo/form":
+        EstiloController::form();
+        break;
+
+    case "/estilo/form/create":
+        EstiloController::create();
+        break;
+
+    case "/estilo/delete":
+        EstiloController::delete();
+    break;
+
     default:
         echo "Erro 404";
         break;

@@ -3,6 +3,7 @@
 namespace app\model\dao;
 
 use app\lib\Conexao;
+
 //require_once('Conexao.class.php');
 
 abstract class DAO {

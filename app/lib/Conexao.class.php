@@ -1,7 +1,8 @@
 <?php 
 
 namespace app\lib;
-use \PDOException;
+
+use \PDOExcetion;
 use \PDO;
 
 class Conexao {

@@ -1,5 +1,6 @@
+
     <footer>
-        Rodapé --------------
+        Rodapé
     </footer>
 </body>
 </html>
