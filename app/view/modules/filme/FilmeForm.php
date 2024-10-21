@@ -3,32 +3,44 @@
     <fieldset>
         <legend><?=(is_null($filme)) ? ("Cadastro") : ("Edição")?> de Filme</legend>
 
-        <form method="post" action="/filme/form/create">
+        <form class="row g-3" method="post" action="/filme/form/create">
             <input type="hidden" name='id' value="<?=(is_null($filme)) ? ("") : ($filme->id)?>">
 
-            <label for="">Nome:</label> <br>
-            <input type="text" name="nome" value="<?=(is_null($filme)) ? ("") : ($filme->nome)?>"> <br><br>
+            <div class="col-12">
+                <label class="form-label" for="">Nome:</label> <br>
+                <input class="form-control" type="text" name="nome" value="<?=(is_null($filme)) ? ("") : ($filme->nome)?>"> <br><br>
+            </div>
 
-            <label for="">Ano:</label> <br>
-            <input type="number" name="ano" value="<?=(is_null($filme)) ? ("") : ($filme->ano)?>"> <br><br>
+            <div class="col-md-6">
+                <label class="form-label" for="">Ano:</label> <br>
+                <input class="form-control" type="number" name="ano" value="<?=(is_null($filme)) ? ("") : ($filme->ano)?>"> <br><br>
+            </div>
 
-            <label for="">Duração (minutos):</label> <br>
-            <input type="number" name="duracao" value="<?=(is_null($filme)) ? ("") : ($filme->duracao)?>"> <br><br>
+            <div class="col-md-6">
+                <label class="form-label" for="">Duração (minutos):</label> <br>
+                <input class="form-control" type="number" name="duracao" value="<?=(is_null($filme)) ? ("") : ($filme->duracao)?>"> <br><br>
+            </div>
 
-            <label for="">Foto:</label> <br>
-            <input type="text" name="foto" value="<?=(is_null($filme)) ? ("") : ($filme->foto)?>"> <br><br>
+            <div class="col-md-6">
+                <label class="form-label" for="">Foto:</label> <br>
+                <input class="form-control" type="text" name="foto" value="<?=(is_null($filme)) ? ("") : ($filme->foto)?>"> <br><br>
+            </div>
 
-            <label for="">Sinopse:</label> <br>
-            <textarea name="sinopse"><?=(is_null($filme)) ? ("") : ($filme->sinopse)?></textarea> <br><br>
+            <div class="col-md-6">
+                <label class="form-label" for="">Estilo:</label> <br>
+                <select name="estilo_id">
+                    <?php foreach ($estilos as $estilo): ?>
+                        <option value="<?=$estilo->id?>" <?=(is_null($filme) || $filme->estilo_id != $estilo->id) ? "" : "selected"?>><?=$estilo->nome?></option>
+                    <?php endforeach; ?>
+                </select> <br><br>
+            </div>
 
-            <label for="">Estilo:</label> <br>
-            <select name="estilo_id">
-                <?php foreach ($estilos as $estilo): ?>
-                    <option value="<?=$estilo->id?>" <?=(is_null($filme) || $filme->estilo_id != $estilo->id) ? "" : "selected"?>><?=$estilo->nome?></option>
-                <?php endforeach; ?>
-            </select> <br><br>
+            <div class="col-12">
+                <label class="form-label" for="">Sinopse:</label> <br>
+                <textarea class="form-control" name="sinopse"><?=(is_null($filme)) ? ("") : ($filme->sinopse)?></textarea> <br><br>
+            </div>
 
-            <button type="submit" name="<?=(is_null($filme)) ? ("cadastrar") : ("editar") ?>">
+            <button class="btn btn-primary" type="submit" name="<?=(is_null($filme)) ? ("cadastrar") : ("editar") ?>">
                 <?=(is_null($filme)) ? ("Cadastrar") : ("Editar") ?>
             </button>
         </form>

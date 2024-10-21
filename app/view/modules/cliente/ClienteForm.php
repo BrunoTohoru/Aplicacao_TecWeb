@@ -3,19 +3,25 @@
     <fieldset>
         <legend><?=(is_null($cliente)) ? ("Cadastro") : ("Edição")?> de Cliente</legend>
 
-        <form method="post" action="/cliente/form/create">
+        <form class="row g-3" method="post" action="/cliente/form/create">
             <input type="hidden" name='id' value="<?=(is_null($cliente)) ? ("") : ($cliente->id)?>">
 
-            <label for="">Nome:</label> <br>
-            <input type="text" name="nome" value="<?=(is_null($cliente)) ? ("") : ($cliente->nome)?>"> <br><br>
+            <div class="col-12">
+                <label for="">Nome:</label> <br>
+                <input type="text" name="nome" value="<?=(is_null($cliente)) ? ("") : ($cliente->nome)?>"> <br><br>
+            </div>
 
-            <label for="">Endereço:</label> <br>
-            <input type="text" name="endereco" value="<?=(is_null($cliente)) ? ("") : ($cliente->endereco)?>"> <br><br>
+            <div class="col-12>
+                <label for="">Endereço:</label> <br>
+                <input type="text" name="endereco" value="<?=(is_null($cliente)) ? ("") : ($cliente->endereco)?>"> <br><br>
+            </div>
 
-            <label for="">Telefone:</label> <br>
-            <input type="text" name="telefone" value="<?=(is_null($cliente)) ? ("") : ($cliente->telefone)?>"> <br><br>
+            <div class="col-12">
+                <label for="">Telefone:</label> <br>
+                <input type="text" name="telefone" value="<?=(is_null($cliente)) ? ("") : ($cliente->telefone)?>"> <br><br>
+            </div>
 
-            <button type="submit" name="<?=(is_null($cliente)) ? ("cadastrar") : ("editar") ?>">
+            <button class="btn btn-primary" type="submit" name="<?=(is_null($cliente)) ? ("cadastrar") : ("editar") ?>">
                 <?=(is_null($cliente)) ? ("Cadastrar") : ("Editar") ?>
             </button>
         </form>
