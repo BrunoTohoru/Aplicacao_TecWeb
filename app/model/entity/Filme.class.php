@@ -10,7 +10,7 @@ class Filme {
     private $duracao;
     private $foto;
     private $sinopse;
-    private $estilo_id;
+    private $estilo;
 
     /**
      * Método mágico

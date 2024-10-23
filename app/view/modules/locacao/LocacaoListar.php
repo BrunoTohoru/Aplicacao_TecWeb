@@ -14,8 +14,8 @@
         <tbody>
             <?php foreach ($locacoes as $locacao): ?>
             <tr>
-                <td><?=$locacao->filme->nome ?></td>
-                <td><?=$locacao->cliente->nome ?></td>
+                <td><?=$locacao->filme ?></td>
+                <td><?=$locacao->cliente ?></td>
                 <td><?=$locacao->emissao ?></td>
                 <td><?=$locacao->devolucao ?></td>
                 <td>R$ <?=number_format($locacao->valor, 2, ',', '.')?></td>

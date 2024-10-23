@@ -3,6 +3,8 @@
 namespace app\controller;
 
 use app\model\dao\LocacaoDAO;
+use app\model\dao\FilmeDAO;
+use app\model\dao\ClienteDAO;
 use app\model\entity\Locacao;
 
 /**
@@ -23,7 +25,10 @@ class LocacaoController extends Controller {
     public static function form() {
         parent::isProtected();
         $locacao = null;
-
+        $daoFilme = new FilmeDAO();
+        $daoCliente = new ClienteDAO();
+        $filmes = $daoFilme->read_all();
+        $clientes = $daoCliente->read_all();
         if (isset($_GET['edit'])) {
             $dao = new LocacaoDAO();
             $locacao = $dao->read((int) $_GET['edit']);

@@ -14,7 +14,7 @@ class Conexao {
 	private static $pdo; // PDO (PHP Data Objects)
 	
 	public function __construct() {
-		$this->servidor = "localhost:3312";
+		$this->servidor = "localhost:3306";
 		$this->banco = "ifpr";
 		$this->usuario = "root";
 		$this->senha = "";

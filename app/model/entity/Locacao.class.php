@@ -8,8 +8,8 @@ class Locacao {
     private $emissao;
     private $devolucao;
     private $valor;
-    private $filme_id;
-    private $cliente_id;
+    private $filme;
+    private $cliente;
 
     /**
      * Método mágico

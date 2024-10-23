@@ -16,7 +16,7 @@
                 <td><?=$filme->nome ?></td>
                 <td><?=$filme->ano ?></td>
                 <td><?=$filme->duracao ?> min</td>
-                <td><?=$filme->estilo->nome ?></td>
+                <td><?=$filme->estilo ?></td>
                 <td>
                     <a href="/filme/form?edit=<?=$filme->id?>">
                         <button>Editar</button>

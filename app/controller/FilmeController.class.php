@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\model\dao\FilmeDAO;
+use app\model\dao\EstiloDAO;
 use app\model\entity\Filme;
 
 /**
@@ -17,13 +18,16 @@ class FilmeController extends Controller {
         parent::isProtected();
         $dao = new FilmeDAO();
         $filmes = $dao->read_all();
+        $daoEstilo = new EstiloDAO();
+        $estilos = $daoEstilo->read_all();
         include '../app/view/modules/filme/FilmeListar.php';
     }
 
     public static function form() {
         parent::isProtected();
         $filme = null;
-
+        $daoEstilo = new EstiloDAO();
+        $estilos = $daoEstilo->read_all();
         if (isset($_GET['edit'])) {
             $dao = new FilmeDAO();
             $filme = $dao->read((int) $_GET['edit']);
