@@ -38,7 +38,7 @@ class FilmeDAO extends DAO {
         try {
             $pdo = $this->conexao->get_pdo();
 
-            $pdo_sql = $pdo->prepare("SELECT id, nome, ano, duracao, foto, sinopse, estilo_id FROM filme;");
+            $pdo_sql = $pdo->prepare("SELECT f.id, f.nome, f.ano, f.duracao, f.foto, f.sinopse, e.nome as estilo FROM filme f INNER JOIN estilo e ON f.estilo_id = e.id;");
             $pdo_sql->execute();
             $array_retorno = $pdo_sql->fetchAll();
 
@@ -51,7 +51,7 @@ class FilmeDAO extends DAO {
                 $filme->duracao = $array_filme['duracao'];
                 $filme->foto = $array_filme['foto'];
                 $filme->sinopse = $array_filme['sinopse'];
-                $filme->estilo_id = $array_filme['estilo_id'];
+                $filme->estilo = $array_filme['estilo'];
 
                 $filmes[] = $filme;
             }

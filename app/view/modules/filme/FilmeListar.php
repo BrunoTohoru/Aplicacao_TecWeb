@@ -7,6 +7,8 @@
                 <th>Ano</th>
                 <th>Duração</th>
                 <th>Estilo</th>
+                <th>Foto</th>
+                <th>Sinopse</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -17,6 +19,8 @@
                 <td><?=$filme->ano ?></td>
                 <td><?=$filme->duracao ?> min</td>
                 <td><?=$filme->estilo ?></td>
+                <td><?=$filme->foto ?></td>
+                <td><?=$filme->sinopse ?></td>
                 <td>
                     <a href="/filme/form?edit=<?=$filme->id?>">
                         <button>Editar</button>

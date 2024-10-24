@@ -18,8 +18,7 @@ class FilmeController extends Controller {
         parent::isProtected();
         $dao = new FilmeDAO();
         $filmes = $dao->read_all();
-        $daoEstilo = new EstiloDAO();
-        $estilos = $daoEstilo->read_all();
+        
         include '../app/view/modules/filme/FilmeListar.php';
     }
 

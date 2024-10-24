@@ -23,7 +23,7 @@
 
             <div class="col-md-6">
                 <label class="form-label" for="">Foto:</label> <br>
-                <input class="form-control" type="text" name="foto" value="<?=(is_null($filme)) ? ("") : ($filme->foto)?>"> <br><br>
+                <input class="form-control" type="file" name="foto" value="<?=(is_null($filme)) ? ("") : ($filme->foto)?>"> <br><br>
             </div>
 
             <div class="col-md-6">

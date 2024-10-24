@@ -37,7 +37,7 @@ class LocacaoDAO extends DAO {
         try {
             $pdo = $this->conexao->get_pdo();
 
-            $pdo_sql = $pdo->prepare("SELECT id, emissao, devolucao, valor, filme_id, cliente_id FROM locacao;");
+            $pdo_sql = $pdo->prepare("SELECT l.id, l.emissao, l.devolucao, l.valor, f.nome AS filme, c.nome AS cliente FROM locacao l INNER JOIN filme f ON l.filme_id = f.id INNER JOIN cliente c ON l.cliente_id = c.id;");
             $pdo_sql->execute();
             $array_retorno = $pdo_sql->fetchAll();
 
@@ -48,8 +48,8 @@ class LocacaoDAO extends DAO {
                 $locacao->emissao = $array_locacao['emissao'];
                 $locacao->devolucao = $array_locacao['devolucao'];
                 $locacao->valor = $array_locacao['valor'];
-                $locacao->filme_id = $array_locacao['filme_id'];
-                $locacao->cliente_id = $array_locacao['cliente_id'];
+                $locacao->filme = $array_locacao['filme'];
+                $locacao->cliente = $array_locacao['cliente'];
 
                 $locacoes[] = $locacao;
             }
