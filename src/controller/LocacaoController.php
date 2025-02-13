@@ -1,11 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace Controller;
 
-use app\model\dao\LocacaoDAO;
-use app\model\dao\FilmeDAO;
-use app\model\dao\ClienteDAO;
-use app\model\entity\Locacao;
+use src\entity\Locacao;
 
 /**
  * Responsável por processar a requisição do usuário
@@ -19,7 +16,7 @@ class LocacaoController extends Controller {
         parent::isProtected();
         $dao = new LocacaoDAO();
         $locacoes = $dao->read_all();
-        include '../app/view/modules/locacao/LocacaoListar.php';
+        include '../src/view/modules/locacao/LocacaoListar.php';
     }
 
     public static function form() {
@@ -34,7 +31,7 @@ class LocacaoController extends Controller {
             $locacao = $dao->read((int) $_GET['edit']);
         }
 
-        include '../app/view/modules/locacao/LocacaoForm.php';
+        include '../src/view/modules/locacao/LocacaoForm.php';
     }
 
     public static function create() {

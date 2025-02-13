@@ -1,9 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace Controller;
 
-use app\model\dao\ClienteDAO;
-use app\model\entity\Cliente;
+use src\entity\Cliente;
 
 /**
  * Responsável por processar a requisição do usuário
@@ -17,7 +16,7 @@ class ClienteController extends Controller {
         parent::isProtected();
         $dao = new ClienteDAO();
         $clientes = $dao->read_all();
-        include '../app/view/modules/cliente/ClienteListar.php';
+        include '../src/view/modules/cliente/ClienteListar.php';
     }
 
     public static function form() {
@@ -29,7 +28,7 @@ class ClienteController extends Controller {
             $cliente = $dao->read((int) $_GET['edit']);
         }
 
-        include '../app/view/modules/cliente/ClienteForm.php';
+        include '../src/view/modules/cliente/ClienteForm.php';
     }
 
     public static function create() {

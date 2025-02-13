@@ -1,9 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace Controller;
 
-use app\model\dao\EstiloDAO;
-use app\model\entity\Estilo;
+use src\entity\Estilo;
 
 /**
  * Responsável por processar a requisição do usuário
@@ -17,7 +16,7 @@ class EstiloController extends Controller {
         parent::isProtected();
         $dao = new EstiloDAO();
         $estilos = $dao->read_all();
-        include '../app/view/modules/estilo/EstiloListar.php';
+        include '../src/view/modules/estilo/EstiloListar.php';
     }
 
     public static function form() {
@@ -29,7 +28,7 @@ class EstiloController extends Controller {
             $estilo = $dao->read((int) $_GET['edit']);
         }
 
-        include '../app/view/modules/estilo/EstiloForm.php';
+        include '../src/view/modules/estilo/EstiloForm.php';
     }
 
     public static function create() {

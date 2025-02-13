@@ -1,9 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace Controller;
 
-use app\model\dao\UsuarioDAO;
-use app\model\entity\Usuario;
+use src\entity\Usuario;
 
 /**
  * Responsável por processr a requisição
@@ -13,14 +12,14 @@ class LoginController extends Controller{
     
 
     public static function login() {
-        include '../app/view/login.php';
+        include '../src/view/login.php';
     }
 
     public static function autenticar() {
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
 
-        $usuarioDAO = new UsuarioDAO();
+        $usuarioDAO = new UsuarioDAO();S
 
         $usuario_autenticado = $usuarioDAO->readUserByUserAndPass($usuario, $senha);
 

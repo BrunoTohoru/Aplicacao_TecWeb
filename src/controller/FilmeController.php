@@ -1,10 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace Controller;
 
-use app\model\dao\FilmeDAO;
-use app\model\dao\EstiloDAO;
-use app\model\entity\Filme;
+use src\entity\Filme;
 
 /**
  * Responsável por processar a requisição do usuário
@@ -19,7 +17,7 @@ class FilmeController extends Controller {
         $dao = new FilmeDAO();
         $filmes = $dao->read_all();
         
-        include '../app/view/modules/filme/FilmeListar.php';
+        include '../src/view/modules/filme/FilmeListar.php';
     }
 
     public static function form() {
@@ -32,7 +30,7 @@ class FilmeController extends Controller {
             $filme = $dao->read((int) $_GET['edit']);
         }
 
-        include '../app/view/modules/filme/FilmeForm.php';
+        include '../src/view/modules/filme/FilmeForm.php';
     }
 
     public static function create() {
